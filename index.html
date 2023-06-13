@@ -11,7 +11,10 @@
 
 <body>
     <section>
-        <h2>xaml color generator tool</h2>
+        <header class="section-header">
+            <h2>xaml color generator tool</h2>
+            <button class="add-color-button">+ add color</button>
+        </header>
         <form name="color-input-form">
             <ul class="colors-list">
                 <li class="color-row">
@@ -26,8 +29,6 @@
                     </label>
                 </li>
             </ul>
-
-            <button class="add-color-button" disabled>+ add color</button>
             <button type="submit" class="generate-button">generate</button>
         </form>
         <textarea class="generation-result-textarea" name="generation-result" cols="100" rows="10"></textarea>
