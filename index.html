@@ -24,9 +24,25 @@
                     <input class="color-code-input" type="color" name="color-code" />
                 </label>
             </div>
+            <button class="add-color-button">+ add color</button>
             <button type="submit" class="generate-button">generate</button>
         </form>
         <textarea class="generation-result-textarea" name="generation-result" cols="100" rows="10"></textarea>
+
+        <template id="formRowGroupTemplate">
+            <div class="form-row-group">
+                <label class="form-label">
+                    <span>type color name</span>
+                    <input class="color-name-input" type="text" name="color-name"
+                        placeholder="PascalCase with no whitespaces" />
+                </label>
+                <label class="form-label">
+                    <span>choose color</span>
+                    <input class="color-code-input" type="color" name="color-code" />
+                </label>
+            </div>
+        </template>
+
     </section>
     <script src="scripts/script.js"></script>
 </body>
