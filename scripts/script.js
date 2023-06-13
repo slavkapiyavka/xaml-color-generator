@@ -1,5 +1,5 @@
-const COLOR_NAME_INPUT_ELEMENT = document.querySelector('.color-name-input');
-const COLOR_CODE_INPUT_ELEMENT = document.querySelector('.color-code-input');
+let colorNameInputElements = document.querySelectorAll('.color-name-input');
+let colorCodeInputElements = document.querySelectorAll('.color-code-input');
 const GENERATION_RESULT_TEXTAREA_ELEMENT = document.querySelector('.generation-result-textarea');
 const GENEREATE_BUTTON_ELEMENT = document.querySelector('.generate-button');
 const ADD_COLOR_BUTTON_ELEMENT = document.querySelector('.add-color-button');
@@ -9,9 +9,15 @@ const COLORS_CONTAINER = document.querySelector('.colors-list');
 
 const generateResult = (evt) => {
     evt.preventDefault();
-    const result = `<Color x:Key="${COLOR_NAME_INPUT_ELEMENT.value}Color">${COLOR_CODE_INPUT_ELEMENT.value}</Color>\n<SolidColorBrush x:Key="${COLOR_NAME_INPUT_ELEMENT.value}Brush" Color="{ StaticResource ${COLOR_NAME_INPUT_ELEMENT.value}Color}" />`;
-    console.log(result);
-    GENERATION_RESULT_TEXTAREA_ELEMENT.textContent = result;
+    const colors = [];
+    const brushes = [];
+    for(let i = 0;i < colorNameInputElements.length;i++) {
+        colors.push(`<Color x:Key="${colorNameInputElements[i].value}Color">${colorCodeInputElements[i].value}</Color>`)
+    };
+    for(let i = 0;i < colorCodeInputElements.length;i++) {
+        brushes.push(`<SolidColorBrush x:Key="${colorNameInputElements[i].value}Brush" Color="{ StaticResource ${colorNameInputElements[i].value}Color }" />`)
+    };
+    GENERATION_RESULT_TEXTAREA_ELEMENT.textContent = `${colors.join(`\n`)}\n\n${brushes.join(`\n`)}`;
 };
 
 const addColorTemplate = (evt) => {
@@ -19,6 +25,8 @@ const addColorTemplate = (evt) => {
     const colorElement = FORM_ROW_GROUP_TEMPLATE.cloneNode(true);
     FORM_ROW_GROUP_FRAGMENT.appendChild(colorElement);
     COLORS_CONTAINER.appendChild(FORM_ROW_GROUP_FRAGMENT);
+    colorNameInputElements = document.querySelectorAll('.color-name-input');
+    colorCodeInputElements = document.querySelectorAll('.color-code-input');
 }
 
 GENEREATE_BUTTON_ELEMENT.addEventListener('click', generateResult);
