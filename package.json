@@ -1,0 +1,29 @@
+{
+  "name": "xaml-color-generator",
+  "version": "1.0.0",
+  "description": "Сolor generation tool for wpf applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slavkapiyavka/xaml-color-generator.git"
+  },
+  "keywords": [
+    "xaml",
+    "wpf",
+    "color-generator-tool"
+  ],
+  "author": "slavkapiyavka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slavkapiyavka/xaml-color-generator/issues"
+  },
+  "homepage": "https://github.com/slavkapiyavka/xaml-color-generator#readme",
+  "devDependencies": {
+    "stylelint": "15.9.0",
+    "stylelint-config-standard": "33.0.0",
+    "stylelint-order": "6.0.3"
+  }
+}
