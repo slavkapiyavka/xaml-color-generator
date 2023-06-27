@@ -30,6 +30,20 @@ body {
     gap: 2px;
 }
 
+.form-label__hint {
+    transition: opacity 125ms;
+}
+
+@supports not selector(:has()) {
+    .form-label:has(.color-name-input:placeholder-shown) .form-label__hint {
+        opacity: 0.1;
+    }
+
+    .form-label:not(:has(.color-name-input:placeholder-shown)) .form-label__hint {
+        opacity: 1;
+    }
+}
+
 .color-name-input {
     padding: 6px;
 }
